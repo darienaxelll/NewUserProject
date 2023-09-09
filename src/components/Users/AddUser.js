@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import ErrorModal from "../UI/ErrorModal";
 import classes from "./AddUser.module.css";
 
 const AddUser = (props) => {
@@ -23,10 +24,14 @@ const AddUser = (props) => {
       age: age,
     };
 
-    props.onAddUser(newUser);
+    if (username.length === 0 || age.length <= 0) {
+      console.log("Invalid inputs");
+    } else {
+      props.onAddUser(newUser);
 
-    setUsername("");
-    setAge("");
+      setUsername("");
+      setAge("");
+    }
   };
 
   return (
@@ -34,7 +39,7 @@ const AddUser = (props) => {
       <form onSubmit={submitHandler}>
         <label htmlFor="username">Username</label>
         <input
-          id="usernAame"
+          id="username"
           type="text"
           onChange={usernameHandler}
           value={username}

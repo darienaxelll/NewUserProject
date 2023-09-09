@@ -2,7 +2,7 @@ import Button from "./Button";
 import Card from "./Card.js";
 import classes from "./ErrorModal.module.css";
 
-const ErrorModal = () => {
+const ErrorModal = (props) => {
   return (
     <div className={classes.backdrop}>
       <Card className={classes.modal}>
