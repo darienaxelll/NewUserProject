@@ -11,7 +11,7 @@ const ErrorModal = () => {
         </div>
         <div className={classes.content}>
           <p className={classes.content}>
-            This is the message inside the modal.
+            Please enter a valid name and age (non-empty values).
           </p>
           <Button className={classes.actions}>Okay</Button>
         </div>
