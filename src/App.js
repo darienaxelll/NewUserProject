@@ -1,6 +1,8 @@
 import { useState } from "react";
+import Card from "./components/UI/Card";
 import AddUser from "./components/Users/AddUser";
 import UsersList from "./components/Users/UsersList";
+import classes from "./components/Users/UserList.module.css";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -15,7 +17,9 @@ function App() {
     <div>
       <AddUser onAddUser={addUserHandler} />
       {users.length === 0 ? (
-        <h2>No users yet!</h2>
+        <Card className={classes.users}>
+          <h3>No users yet.</h3>
+        </Card>
       ) : (
         <UsersList users={users} />
       )}

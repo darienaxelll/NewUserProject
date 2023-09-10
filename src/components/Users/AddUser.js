@@ -19,16 +19,17 @@ const AddUser = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const newUser = {
-      username: username,
-      age: age,
-    };
-
-    if (username.length === 0 || age.length <= 0) {
-      console.log("Invalid inputs");
+    if (username.trim().length === 0 || age.trim().length === 0) {
+      return;
+    }
+    if (+age < 1) {
+      return;
     } else {
+      const newUser = {
+        username: username,
+        age: age,
+      };
       props.onAddUser(newUser);
-
       setUsername("");
       setAge("");
     }
